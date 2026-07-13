@@ -839,10 +839,19 @@ body::before {
 .tile-rabbits .collage-img {
   object-position: center 68%;
 }
-.tile-club .collage-img {
+.tile-river .collage-img {
   object-position: center 62%;
 }
+.tile-club {
+  background: var(--bg-paper);
+}
+.tile-club .collage-img {
+  object-fit: contain;
+  object-position: center;
+  transform: scale(0.88);
+}
 .collage-tile:hover .collage-img { transform: scale(1.08); }
+.tile-club:hover .collage-img { transform: scale(0.92); }
 /* Затемнение для читаемости текста */
 .collage-tile::after {
   content: '';
@@ -1196,9 +1205,12 @@ body::before {
 .universe-card:hover .universe-card-bg { opacity: 0.65; }
 
 .universe-card-base .universe-card-bg {
-  background:
-    radial-gradient(ellipse at 50% 30%, rgba(201, 164, 100, 0.5), transparent 60%),
-    linear-gradient(180deg, #1a2826 0%, #0d1f1c 40%, #2d3a3a 100%);
+  background-image:
+    linear-gradient(to top, rgba(15, 21, 26, 0.96) 0%, rgba(15, 21, 26, 0.72) 48%, rgba(15, 21, 26, 0.2) 100%),
+    url('assets/images/base-at-night.webp');
+  background-size: cover, cover;
+  background-position: center, center 55%;
+  background-repeat: no-repeat;
 }
 .universe-card-club .universe-card-bg {
   background:
@@ -2097,8 +2109,8 @@ footer {
   background: var(--bg-paper, #f5ecdb);
 }
 .universe-card-club .universe-card-bg {
-  background-size: cover, 84% auto;
-  background-position: center, center 8%;
+  background-size: cover, 70% auto;
+  background-position: center, center 10%;
   background-repeat: no-repeat;
 }
 .universe-card-club .universe-card-content,
@@ -2414,7 +2426,7 @@ html.has-custom-cursor .cursor { display: block; }
       </article>
 
       <article class="collage-tile tile-terrace">
-        <img class="collage-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="" width="1200" height="800" loading="lazy" decoding="async">
+        <img class="collage-img" src="assets/images/terrace.webp" alt="" width="1600" height="900" loading="lazy" decoding="async">
         <div class="collage-content">
           <span class="collage-eyebrow">02</span>
           <h3 class="collage-title">Терраса</h3>
@@ -2423,7 +2435,7 @@ html.has-custom-cursor .cursor { display: block; }
       </article>
 
       <article class="collage-tile tile-river">
-        <img class="collage-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="" width="1200" height="800" loading="lazy" decoding="async">
+        <img class="collage-img" src="assets/images/katun-view.webp" alt="" width="900" height="1600" loading="lazy" decoding="async">
         <div class="collage-content">
           <span class="collage-eyebrow">03</span>
           <h3 class="collage-title">Вид на Катунь</h3>
@@ -2441,7 +2453,7 @@ html.has-custom-cursor .cursor { display: block; }
       </article>
 
       <a href="https://imperia-tur.com/night-club/" target="_blank" rel="noopener" class="collage-tile tile-club" data-hover aria-label="Подробнее о ночном клубе «Империя»">
-        <img class="collage-img" src="assets/images/club-logo-dark.webp" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+        <img class="collage-img" src="assets/images/club-logo-light.webp" alt="" width="1087" height="796" loading="lazy" decoding="async">
         <div class="collage-content">
           <span class="collage-eyebrow">05</span>
           <h3 class="collage-title">Клуб «Империя»</h3>
@@ -3787,13 +3799,18 @@ menuTabs.forEach(tab => {
     function update() {
       var scrollY = window.scrollY || window.pageYOffset;
       var heroH = window.innerHeight;
-      var inReserve = false;
+      var blockedByContent = false;
       var reserve = document.getElementById('reserve');
       if (reserve) {
         var rect = reserve.getBoundingClientRect();
-        inReserve = rect.top < heroH * 0.7 && rect.bottom > heroH * 0.3;
+        blockedByContent = rect.top < heroH && rect.bottom > 0;
       }
-      if (scrollY > heroH * 0.5 && !inReserve) {
+      var footer = document.querySelector('footer');
+      if (footer && !blockedByContent) {
+        var footerRect = footer.getBoundingClientRect();
+        blockedByContent = footerRect.top < heroH && footerRect.bottom > 0;
+      }
+      if (scrollY > heroH * 0.5 && !blockedByContent) {
         floatingCta.classList.add('visible');
       } else {
         floatingCta.classList.remove('visible');
