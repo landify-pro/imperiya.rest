@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Сытый Кролик">
+  <rect width="64" height="64" rx="16" fill="#1a2028"/>
+  <path d="M22 30C15 23 14 8 20 7c5-1 9 11 10 19m12 4c7-7 8-22 2-23-5-1-9 11-10 19" fill="#efe1c4"/>
+  <ellipse cx="32" cy="39" rx="18" ry="16" fill="#efe1c4"/>
+  <circle cx="25" cy="37" r="2" fill="#1a2028"/>
+  <circle cx="39" cy="37" r="2" fill="#1a2028"/>
+  <path d="M29 43c2 2 4 2 6 0m-3-1v5" fill="none" stroke="#b6573e" stroke-width="2" stroke-linecap="round"/>
+</svg>
