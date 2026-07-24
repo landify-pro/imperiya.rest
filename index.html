@@ -2064,6 +2064,9 @@ footer {
   z-index: 2;
   padding: 2.5rem;
   color: var(--cream, #efe1c4);
+  display: grid;
+  grid-template-rows: auto 4.65em auto;
+  row-gap: 1rem;
 }
 .universe-card-eyebrow {
   font-family: var(--font-serif);
@@ -2080,7 +2083,7 @@ footer {
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.01em;
-  margin: 0 0 0.9rem;
+  margin: 0;
 }
 .universe-card-desc {
   font-family: var(--font-italic);
@@ -2088,7 +2091,7 @@ footer {
   font-size: 1rem;
   line-height: 1.55;
   opacity: 0.9;
-  margin: 0 0 1.2rem;
+  margin: 0;
   max-width: 460px;
 }
 .universe-card-link {
@@ -2142,7 +2145,10 @@ footer {
   .universe-header { margin-bottom: 2.5rem; }
   .universe-grid { grid-template-columns: 1fr; gap: 1rem; }
   .universe-card { height: 360px; }
-  .universe-card-content { padding: 1.8rem; }
+  .universe-card-content {
+    padding: 1.8rem;
+    grid-template-rows: auto 6.2em auto;
+  }
   .universe-card-title { font-size: 1.6rem; }
   .universe-card-desc { font-size: 0.92rem; }
 }
