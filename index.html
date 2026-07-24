@@ -846,15 +846,13 @@ body::before {
   object-position: center 56%;
 }
 .tile-club {
-  background: var(--bg-paper);
+  background: var(--bg-warm);
 }
 .tile-club .collage-img {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  transform: scale(0.88);
 }
 .collage-tile:hover .collage-img { transform: scale(1.08); }
-.tile-club:hover .collage-img { transform: scale(0.92); }
 /* Затемнение для читаемости текста */
 .collage-tile::after {
   content: '';
@@ -1217,8 +1215,8 @@ body::before {
 }
 .universe-card-club .universe-card-bg {
   background:
-    linear-gradient(to top, rgba(245, 236, 219, 0.98) 0%, rgba(245, 236, 219, 0.82) 38%, rgba(245, 236, 219, 0.08) 72%),
-    url('assets/images/club-logo-light.webp');
+    linear-gradient(to top, rgba(15, 21, 26, 0.96) 0%, rgba(15, 21, 26, 0.64) 48%, rgba(15, 21, 26, 0.08) 100%),
+    url('assets/images/club-atmosphere.webp');
 }
 
 .universe-card-content { position: relative; z-index: 2; }
@@ -2109,30 +2107,30 @@ footer {
   color: var(--cream, #efe1c4);
 }
 .universe-card-club {
-  background: var(--bg-paper, #f5ecdb);
+  background: var(--bg-warm, #232a33);
 }
 .universe-card-club .universe-card-bg {
-  background-size: cover, 70% auto;
-  background-position: center, center 10%;
+  background-size: cover, cover;
+  background-position: center, center;
   background-repeat: no-repeat;
 }
 .universe-card-club .universe-card-content,
 .universe-card-club .universe-card-title {
-  color: var(--ink, #1f2832);
+  color: var(--cream, #efe1c4);
 }
 .universe-card-club .universe-card-time,
 .universe-card-club .universe-card-link {
-  color: var(--terracotta-deep, #8d3d28);
+  color: var(--gold-soft, #d4b67a);
 }
 .universe-card-club .universe-card-desc {
-  color: var(--ink, #1f2832);
-  opacity: 0.76;
+  color: var(--cream, #efe1c4);
+  opacity: 0.9;
 }
 .universe-card-club .universe-card-link {
-  border-bottom-color: var(--terracotta, #b6573e);
+  border-bottom-color: var(--gold, #c9a464);
 }
 .universe-card-club:hover .universe-card-link {
-  color: var(--terracotta, #b6573e);
+  color: var(--cream, #efe1c4);
 }
 
 @media (max-width: 1023px) {
@@ -2415,7 +2413,7 @@ html.has-custom-cursor .cursor { display: block; }
     <div class="atmosphere-header">
       <span class="atmosphere-eyebrow">что вокруг</span>
       <h2 class="atmosphere-title">Не только за&nbsp;<em>столом</em></h2>
-      <p class="atmosphere-sub">Терраса с&nbsp;видом на&nbsp;Катунь, живые кролики, прогулка до&nbsp;реки&nbsp;- всё в&nbsp;шаге от&nbsp;ужина</p>
+      <p class="atmosphere-sub">Терраса с&nbsp;видом на&nbsp;Катунь, падел-корт, прогулка до&nbsp;реки&nbsp;- всё в&nbsp;шаге от&nbsp;ужина</p>
     </div>
 
     <div class="atmosphere-collage">
@@ -2424,7 +2422,7 @@ html.has-custom-cursor .cursor { display: block; }
         <div class="collage-content">
           <span class="collage-eyebrow">01</span>
           <h3 class="collage-title">Ресторан</h3>
-          <p class="collage-desc">Стеклянные стены, тёплый свет, прямая линия взгляда на Катунь и скалы</p>
+          <p class="collage-desc">Панорамные окна с видом на Катунь</p>
         </div>
       </article>
 
@@ -2442,25 +2440,25 @@ html.has-custom-cursor .cursor { display: block; }
         <div class="collage-content">
           <span class="collage-eyebrow">03</span>
           <h3 class="collage-title">Вид на Катунь</h3>
-          <p class="collage-desc">Та самая бирюзовая вода - у ваших ног</p>
+          <p class="collage-desc">Бирюзовая Катунь - в нескольких шагах от ресторана</p>
         </div>
       </article>
 
       <article class="collage-tile tile-rabbits">
-        <img class="collage-img" src="assets/images/rabbit-at-complex.webp" alt="" width="720" height="1280" loading="lazy" decoding="async">
+        <img class="collage-img" src="assets/images/padel-court.webp" alt="Падел-корт на территории туркомплекса" width="1531" height="783" loading="lazy" decoding="async">
         <div class="collage-content">
           <span class="collage-eyebrow">04</span>
-          <h3 class="collage-title">Живые кролики</h3>
-          <p class="collage-desc">Живут на территории, приходят знакомиться. Подружитесь - будет, кому помахать на прощание</p>
+          <h3 class="collage-title">Падел-корт</h3>
+          <p class="collage-desc">Играйте вдвоём или собирайте компанию прямо на территории туркомплекса</p>
         </div>
       </article>
 
       <a href="https://imperia-tur.com/night-club/" target="_blank" rel="noopener" class="collage-tile tile-club" data-hover aria-label="Подробнее о ночном клубе «Империя»">
-        <img class="collage-img" src="assets/images/club-logo-light.webp" alt="" width="1087" height="796" loading="lazy" decoding="async">
+        <img class="collage-img" src="assets/images/club-atmosphere.webp" alt="Вечеринка в ночном клубе «Империя»" width="2048" height="1365" loading="lazy" decoding="async">
         <div class="collage-content">
           <span class="collage-eyebrow">05</span>
           <h3 class="collage-title">Клуб «Империя»</h3>
-          <p class="collage-desc">Самая большая танцплощадка Сибири под открытым небом. До утра</p>
+          <p class="collage-desc">Самая большая танцплощадка Сибири под открытым небом</p>
         </div>
       </a>
 
@@ -2469,7 +2467,7 @@ html.has-custom-cursor .cursor { display: block; }
         <div class="collage-content">
           <span class="collage-eyebrow">06</span>
           <h3 class="collage-title">Туркомплекс «Империя&nbsp;туризма»</h3>
-          <p class="collage-desc">Зеркальные дома, бассейн, баня, экскурсии. Жильё гостей ресторана</p>
+          <p class="collage-desc">Зеркальные дома, бассейн, баня, экскурсии</p>
         </div>
       </a>
     </div>
@@ -3195,7 +3193,7 @@ html.has-custom-cursor .cursor { display: block; }
       Стол ждёт<br><em>именно вас.</em>
     </h2>
     <p class="reserve-sub">
-      У нас стеклянный ресторан - вид на Катунь и скалы открывается из любой точки.<br>Для брони нужно лишь выбрать: в зале или на террасе.
+      Панорамные окна с видом на Катунь из любой точки ресторана.<br>Для брони нужно лишь выбрать: в зале или на террасе.
     </p>
 
     <form class="reserve-form" id="reserveForm" action="#reserve" method="post">
@@ -3340,7 +3338,7 @@ html.has-custom-cursor .cursor { display: block; }
         <div class="universe-card-content">
           <div class="universe-card-time">☀️ полдень</div>
           <h3 class="universe-card-title">База отдыха</h3>
-          <p class="universe-card-desc">Зеркальные дома над Катунью, бассейн, баня, экскурсии. Где живут гости «Кролика».</p>
+          <p class="universe-card-desc">Зеркальные дома над Катунью, бассейн, баня, экскурсии и падел-корт.</p>
           <span class="universe-card-link">imperia-tur.com →</span>
         </div>
       </a>
@@ -3367,10 +3365,10 @@ html.has-custom-cursor .cursor { display: block; }
   <div class="footer-inner">
     <div>
       <div class="footer-brand">Сытый Кролик</div>
-      <div class="footer-brand-sub">ресторан в туркомплексе «Империя»</div>
+      <div class="footer-brand-sub">ресторан в туркомплексе «Империя туризма»</div>
       <p class="footer-text">
-        Авторская алтайская кухня на дровах. Открытая терраса над Катунью.
-        Часть туркомплекса «Империя туризма» - отдых, который остаётся.
+        Авторская алтайская кухня. Открытая терраса над Катунью.
+        Часть туркомплекса «Империя туризма» - отдых, который запоминается.
       </p>
     </div>
 
@@ -3380,7 +3378,7 @@ html.has-custom-cursor .cursor { display: block; }
         <li>Алтайский край,</li>
         <li>природный парк «Ая»</li>
         <li>Туркомплекс «Империя&nbsp;туризма»</li>
-        <li><a href="https://yandex.ru/maps/?text=%D0%98%D0%BC%D0%BF%D0%B5%D1%80%D0%B8%D1%8F%20%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC%D0%B0%20%D0%90%D1%8F" target="_blank" rel="noopener" data-hover>Найти на карте →</a></li>
+        <li><a href="https://go.2gis.com/kq6Rl" target="_blank" rel="noopener" data-hover>Найти на карте →</a></li>
       </ul>
     </div>
 
@@ -3394,7 +3392,7 @@ html.has-custom-cursor .cursor { display: block; }
     </div>
 
     <div class="footer-col">
-      <div class="footer-col-title">Вселенная</div>
+      <div class="footer-col-title">Проекты «Империи туризма»</div>
       <ul>
         <li><a href="https://imperia-tur.com/" target="_blank" rel="noopener" data-hover>Туркомплекс «Империя&nbsp;туризма»</a></li>
         <li><a href="https://imperia-tur.com/night-club/" target="_blank" rel="noopener" data-hover>Ночной клуб</a></li>
