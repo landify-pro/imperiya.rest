@@ -970,58 +970,40 @@ body::before {
   color: var(--cream-dim);
   opacity: 0.85;
   max-width: 600px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 3rem;
   line-height: 1.7;
 }
 
-.reserve-form {
+.reserve-call {
   max-width: 700px;
   margin: 0 auto;
-  display: grid;
-  gap: 1.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(201, 164, 100, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.reserve-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-.reserve-field {
-  position: relative;
-  text-align: left;
-}
-.reserve-field label {
-  font-family: var(--font-hand);
-  font-size: 1.2rem;
-  color: var(--gold-soft);
-  display: block;
-  margin-bottom: 0.3rem;
-}
-.reserve-field input, .reserve-field select {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(239, 225, 196, 0.38);
-  padding: 0.6rem 0;
+.reserve-call-label {
+  margin-bottom: 0.7rem;
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  opacity: 0.72;
+}
+.reserve-phone {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
   color: var(--cream);
-  color-scheme: dark;
-  cursor: none;
-  outline: none;
-  transition: border-color .3s ease;
+  transition: color .3s ease;
 }
-.reserve-field input:focus, .reserve-field select:focus {
-  border-bottom-color: var(--gold);
+.reserve-phone:hover,
+.reserve-phone:focus-visible {
+  color: var(--gold);
 }
-.reserve-field input::placeholder {
-  color: rgba(239, 225, 196, 0.45);
-  font-style: italic;
-}
-.reserve-field select option {
-  background: var(--bg-warm);
-  color: var(--cream);
-}
-.reserve-submit {
+.reserve-call-button {
   margin-top: 2rem;
   background: var(--terracotta);
   color: var(--cream);
@@ -1035,20 +1017,26 @@ body::before {
   position: relative;
   overflow: hidden;
   transition: background .3s ease, color .3s ease, transform .3s ease;
-  align-self: center;
-  justify-self: center;
   border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
 }
-.reserve-submit:hover {
+.reserve-call-button svg {
+  width: 19px;
+  height: 19px;
+}
+.reserve-call-button:hover {
   background: var(--gold);
   color: var(--ink);
   transform: translateY(-2px);
 }
-.reserve-submit:focus-visible {
+.reserve-call-button:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 4px;
 }
-.reserve-form-note {
+.reserve-call-note {
   margin: 1.8rem auto 0;
   max-width: 520px;
   color: var(--cream-dim);
@@ -1056,88 +1044,6 @@ body::before {
   font-size: 0.78rem;
   line-height: 1.5;
   opacity: 0.72;
-}
-.reserve-consent {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.7rem;
-  max-width: 560px;
-  margin: 0.2rem auto 0;
-  color: var(--cream-dim);
-  font-family: var(--font-serif);
-  font-size: 0.82rem;
-  line-height: 1.5;
-  text-align: left;
-  cursor: pointer;
-}
-.reserve-consent input {
-  width: 18px;
-  height: 18px;
-  flex: 0 0 auto;
-  margin-top: 0.1rem;
-  accent-color: var(--terracotta);
-}
-.reserve-consent a {
-  color: var(--gold-soft);
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-}
-.reserve-contacts {
-  margin-top: 4rem;
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-  flex-wrap: wrap;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(201, 164, 100, 0.25);
-}
-.reserve-contact {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-align: left;
-}
-.reserve-contact-icon {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  color: var(--gold);
-}
-.reserve-contact-icon svg { width: 18px; height: 18px; }
-.reserve-contact-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-  opacity: 0.72;
-  margin-bottom: 0.2rem;
-}
-.reserve-contact-value {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--cream);
-}
-.reserve-contact-value small {
-  display: block;
-  margin-top: 0.15rem;
-  color: var(--cream-dim);
-  font-family: var(--font-serif);
-  font-size: 0.72rem;
-  line-height: 1.35;
-}
-.reserve-contact-value a {
-  color: inherit;
-  text-decoration: none;
-  transition: color .3s ease;
-}
-.reserve-contact-value a:hover,
-.reserve-contact-value a:focus-visible {
-  color: var(--gold);
 }
 
 /* ============================================
@@ -1588,10 +1494,8 @@ footer {
   .atmosphere-title { font-size: clamp(1.75rem, 8vw, 2.1rem); }
 
 
-  .reserve-field input, .reserve-field select { font-size: 1rem; }
-  .reserve-submit { padding: 1.2rem 3rem; font-size: 0.95rem; letter-spacing: 0.2em; }
-  .reserve-contacts { gap: 2rem; margin-top: 3rem; padding-top: 2.5rem; flex-direction: column; align-items: center; }
-  .reserve-contact { width: 100%; max-width: 300px; }
+  .reserve-call { padding-top: 2.5rem; }
+  .reserve-call-button { padding: 1.2rem 3rem; font-size: 0.95rem; letter-spacing: 0.2em; }
 
   .universe { padding: 6rem 1.2rem; }
   .universe-header { margin-bottom: 3rem; }
@@ -1609,8 +1513,6 @@ footer {
   html, body { cursor: auto; }
   .cursor, .paw-print { display: none; }
   button, a, input, select, .dish, .atmosphere-card, .universe-card { cursor: pointer; }
-  .reserve-field input, .reserve-field select { cursor: pointer; }
-  .reserve-submit { cursor: pointer; }
 
   .sticky-cta { bottom: 1rem; right: 1rem; padding: 0.8rem 1.4rem; font-size: 0.75rem; letter-spacing: 0.2em; }
   /* Меню — адаптация под мобильник */
@@ -1761,43 +1663,6 @@ footer {
     word-break: break-word;
     overflow-wrap: break-word;
     text-align: center;
-  }
-  .reserve-row {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .reserve-field {
-    text-align: center !important;
-  }
-  .reserve-field label {
-    display: block;
-    text-align: center !important;
-    width: 100%;
-  }
-  .reserve-field input,
-  .reserve-field select {
-    text-align: center !important;
-    text-align-last: center !important; /* для select */
-    width: 100%;
-    /* iOS нативные селекты плохо центрируют — делаем кастомный вид */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  .reserve-field select {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%23c9a464' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 0.6rem center;
-    background-size: 10px 6px;
-    /* симметричные паддинги — текст реально по центру */
-    padding-right: 1.8rem;
-    padding-left: 1.8rem;
-  }
-  .reserve-field input::placeholder {
-    text-align: center;
-  }
-  .reserve-form {
-    padding: 0;
   }
 }
 
@@ -2191,7 +2056,7 @@ footer {
 }
 
 
-/* Плавающая кнопка "Забронировать столик" — появляется при скролле */
+/* Плавающая кнопка звонка — появляется при скролле */
 .floating-cta {
   position: fixed;
   bottom: 1.5rem;
@@ -3261,131 +3126,19 @@ html.has-custom-cursor .cursor { display: block; }
       Стол ждёт<br><em>именно вас.</em>
     </h2>
     <p class="reserve-sub">
-      Панорамные окна с видом на Катунь из любой точки ресторана.<br>Для брони нужно лишь выбрать: в зале или на террасе.
+      Панорамные окна с видом на Катунь из любой точки ресторана.<br>Чтобы забронировать стол, позвоните администратору.
     </p>
 
-    <form class="reserve-form" id="reserveForm" action="#reserve" method="post">
-      <div class="reserve-row">
-        <div class="reserve-field">
-          <label for="reserveName">Ваше имя</label>
-          <input type="text" id="reserveName" name="name" placeholder="Иван Иванов" autocomplete="name" required data-hover>
-        </div>
-        <div class="reserve-field">
-          <label for="reservePhone">Телефон</label>
-          <input type="tel" id="reservePhone" name="phone" placeholder="+7 999 000-00-00" autocomplete="tel" inputmode="tel" minlength="10" maxlength="20" pattern="[0-9+() -]{10,20}" title="Введите номер телефона" required data-hover>
-        </div>
-      </div>
-
-      <div class="reserve-row">
-        <div class="reserve-field">
-          <label for="reserveDate">Дата</label>
-          <input type="date" id="reserveDate" name="date" required data-hover>
-        </div>
-        <div class="reserve-field">
-          <label for="reserveTime">Время</label>
-          <select id="reserveTime" name="time" required data-hover>
-            <option>09:00</option>
-            <option>09:30</option>
-            <option>10:00</option>
-            <option>10:30</option>
-            <option>11:00</option>
-            <option>11:30</option>
-            <option>12:00</option>
-            <option>12:30</option>
-            <option>13:00</option>
-            <option>13:30</option>
-            <option>14:00</option>
-            <option>14:30</option>
-            <option>15:00</option>
-            <option>15:30</option>
-            <option>16:00</option>
-            <option>16:30</option>
-            <option>17:00</option>
-            <option>17:30</option>
-            <option>18:00</option>
-            <option>18:30</option>
-            <option>19:00</option>
-            <option>19:30</option>
-            <option selected>20:00</option>
-            <option>20:30</option>
-            <option>21:00</option>
-            <option>21:30</option>
-            <option>22:00</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="reserve-row">
-        <div class="reserve-field">
-          <label for="reserveGuests">Гостей</label>
-          <select id="reserveGuests" name="guests" required data-hover>
-            <option>1 человек</option>
-            <option selected>2 человека</option>
-            <option>3 человека</option>
-            <option>4 человека</option>
-            <option>5 человек</option>
-            <option>6 человек</option>
-            <option>7 человек</option>
-            <option>8 человек</option>
-            <option>9 человек</option>
-            <option>10+ человек</option>
-          </select>
-        </div>
-        <div class="reserve-field">
-          <label for="reserveZone">Зона</label>
-          <select id="reserveZone" name="zone" required data-hover>
-            <option>В ресторане</option>
-            <option>На террасе</option>
-          </select>
-        </div>
-      </div>
-
-      <label class="reserve-consent">
-        <input type="checkbox" name="consent" required>
-        <span>Я согласен на обработку данных для оформления брони и принимаю <a href="privacy.html" target="_blank" rel="noopener">политику конфиденциальности</a>.</span>
-      </label>
-
-      <button type="submit" class="reserve-submit" data-hover>Забронировать</button>
-      <p class="reserve-form-note">Стол можно забронировать на время до 22:00. После нажатия откроется WhatsApp с готовой заявкой. Бронь будет подтверждена после ответа администратора.</p>
-    </form>
-
-    <div class="reserve-contacts">
-      <div class="reserve-contact">
-        <div class="reserve-contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="reserve-contact-label">Бронь по телефону</div>
-          <div class="reserve-contact-value"><a href="tel:+79095041415">+7&nbsp;(909)&nbsp;504&#8209;14&#8209;15</a></div>
-        </div>
-      </div>
-
-      <div class="reserve-contact">
-        <div class="reserve-contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="reserve-contact-label">WhatsApp</div>
-          <div class="reserve-contact-value"><a href="https://wa.me/79095041415" target="_blank" rel="noopener">+7&nbsp;(909)&nbsp;504&#8209;14&#8209;15</a></div>
-        </div>
-      </div>
-
-      <div class="reserve-contact">
-        <div class="reserve-contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <div>
-          <div class="reserve-contact-label">Часы работы</div>
-          <div class="reserve-contact-value">Пн-чт 09:00 - 22:00<small>пт-вс 09:00 - 23:00<br>завтраки 09:00 - 11:00</small></div>
-        </div>
-      </div>
+    <div class="reserve-call">
+      <div class="reserve-call-label">Бронь по телефону</div>
+      <a class="reserve-phone" href="tel:+79095041415" data-hover>+7&nbsp;(909)&nbsp;504&#8209;14&#8209;15</a>
+      <a class="reserve-call-button" href="tel:+79095041415" data-hover>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Позвонить
+      </a>
+      <p class="reserve-call-note">Стол можно забронировать на время до 22:00. Бронь подтверждается администратором во время звонка.</p>
     </div>
   </div>
 </section>
@@ -3453,7 +3206,6 @@ html.has-custom-cursor .cursor { display: block; }
       <ul>
         <li><a href="tel:+79095041415" data-hover>+7&nbsp;(909)&nbsp;504&#8209;14&#8209;15</a></li>
         <li><a href="mailto:imperia.tr@mail.ru" data-hover>imperia.tr@mail.ru</a></li>
-        <li><a href="https://wa.me/79095041415" target="_blank" rel="noopener" data-hover>WhatsApp</a></li>
       </ul>
     </div>
 
@@ -3633,12 +3385,12 @@ function initHeroAnimations() {
     stagger: 0.15,
     scrollTrigger: { trigger: '.reserve', start: 'top 75%' }
   });
-  gsap.from('.reserve-form > *', {
+  gsap.from('.reserve-call > *', {
     y: 30,
     opacity: 0,
     duration: 0.7,
     stagger: 0.1,
-    scrollTrigger: { trigger: '.reserve-form', start: 'top 85%' }
+    scrollTrigger: { trigger: '.reserve-call', start: 'top 85%' }
   });
 
   // Universe cards
@@ -3742,17 +3494,14 @@ menuTabs.forEach(tab => {
 
 </script>
 
-<!-- Плавающая кнопка "Забронировать столик" — появляется при скролле -->
-<a href="#reserve" class="floating-cta" id="floatingCta" data-hover>
+<!-- Плавающая кнопка звонка — появляется при скролле -->
+<a href="tel:+79095041415" class="floating-cta" id="floatingCta" aria-label="Позвонить для бронирования" data-hover>
   <span class="floating-cta-icon">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-      <line x1="16" y1="2" x2="16" y2="6"/>
-      <line x1="8" y1="2" x2="8" y2="6"/>
-      <line x1="3" y1="10" x2="21" y2="10"/>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
     </svg>
   </span>
-  <span class="floating-cta-text">Забронировать столик</span>
+  <span class="floating-cta-text">Позвонить</span>
 </a>
 
 
@@ -3802,60 +3551,6 @@ menuTabs.forEach(tab => {
     }
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
-
-    // Автозаполнение даты сегодняшним днём
-    var dateInputs = document.querySelectorAll('.reserve-field input[type="date"], input[name="date"]');
-    if (dateInputs.length) {
-      var today = new Date();
-      var yyyy = today.getFullYear();
-      var mm = String(today.getMonth() + 1).padStart(2, '0');
-      var dd = String(today.getDate()).padStart(2, '0');
-      var iso = yyyy + '-' + mm + '-' + dd;
-      dateInputs.forEach(function(inp) {
-        if (!inp.value) inp.value = iso;
-        inp.min = iso;
-      });
-    }
-
-    // Отправка заполненной заявки в WhatsApp
-    var reserveForm = document.getElementById('reserveForm');
-    if (reserveForm) {
-      reserveForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        if (!reserveForm.checkValidity()) {
-          reserveForm.reportValidity();
-          return;
-        }
-
-        var formData = new FormData(reserveForm);
-        var rawDate = String(formData.get('date') || '');
-        var dateParts = rawDate.split('-');
-        var bookingDate = dateParts.length === 3
-          ? dateParts[2] + '.' + dateParts[1] + '.' + dateParts[0]
-          : rawDate;
-        var message = [
-          'Здравствуйте! Хочу забронировать столик в ресторане «Сытый Кролик».',
-          '',
-          'Имя: ' + String(formData.get('name') || '').trim(),
-          'Телефон: ' + String(formData.get('phone') || '').trim(),
-          'Дата: ' + bookingDate,
-          'Время: ' + String(formData.get('time') || ''),
-          'Гостей: ' + String(formData.get('guests') || ''),
-          'Зона: ' + String(formData.get('zone') || ''),
-          '',
-          'Пожалуйста, подтвердите бронь.'
-        ].join('\n');
-        var whatsappUrl = 'https://wa.me/79095041415?text=' + encodeURIComponent(message);
-        var whatsappWindow = window.open(whatsappUrl, '_blank');
-
-        if (whatsappWindow) {
-          whatsappWindow.opener = null;
-        } else {
-          window.location.href = whatsappUrl;
-        }
-      });
-    }
 
     var floatingCta = document.getElementById('floatingCta');
     if (!floatingCta) {
